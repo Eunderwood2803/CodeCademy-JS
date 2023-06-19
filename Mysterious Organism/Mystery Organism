@@ -1,0 +1,38 @@
+// Returns a random DNA base
+const returnRandBase = () => {
+  const dnaBases = ['A', 'T', 'C', 'G']
+  return dnaBases[Math.floor(Math.random() * 4)] 
+}
+
+
+
+const pAequorFactory = (num, arr) => {
+  return {
+    specimen: num,
+    dna: arr,
+    mutate() {
+        let ranNum = Math.floor(Math.random() * this.dna.length)
+          let newBase = returnRandBase()
+          if (this.dna[ranNum] === newBase) {
+            newBase = returnRandBase();
+            }
+            this.dna[ranNum] = newBase
+            return this.dna
+    }
+  }
+}
+
+// Returns a random single strand of DNA containing 15 bases
+const mockUpStrand = () => {
+  const newStrand = []
+  for (let i = 0; i < 15; i++) {
+    newStrand.push(returnRandBase())
+  }
+  return newStrand
+}
+
+const test1 = pAequorFactory(1, mockUpStrand())
+console.log(test1)
+
+console.log(test1.dna);
+console.log(test1.mutate());
