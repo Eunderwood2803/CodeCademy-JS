@@ -12,3 +12,14 @@ const mockUpStrand = () => {
   }
   return newStrand
 }
+
+// Returns obhect representing P. aequor
+function pAequorFactory(number, dna) {
+  return {
+    // Properties
+    _specimenNumber: number,
+    _dna: dna,
+
+    }
+  }
+}
